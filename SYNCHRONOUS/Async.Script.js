@@ -134,4 +134,16 @@ getData(1, () =>{
 
 
 
+// promise:
+
+let promise = new Promise((resolve, reject) => {
+    console.log("I am a promise");
+     resolve(786);
+    //  reject("some error")
+});
+
+
+
+
+
 
