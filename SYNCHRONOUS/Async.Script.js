@@ -139,11 +139,63 @@ getData(1, () =>{
 let promise = new Promise((resolve, reject) => {
     console.log("I am a promise");
      resolve(786);
-    //  reject("some error")
+    //  reject("some error occurred")
 });
 
 
+//PROMISE:SUCCESS, REJECT,RESOLVE:
+
+function getData(dataId, getNextData) {
+    return new Promise((resolve, reject) =>{
+setTimeout(() => {  
+    console.log("data", dataId);
+    resolve("success");
+    if (getNextData) {
+getNextData();    
+    }    
+    }, 5000);
+
+    });
+}
 
 
+
+
+// SUCCESS : FULFILED:THEN
+
+
+const getPromise = () => {
+    return new Promise ((resolve, reject) => {
+        console.log("I am a promise");
+            resolve("success");
+     
+    });
+};
+
+let promise = getPromise();
+promise.then(() => {
+    console.log("promise fulfiled");
+});
+
+
+// REJETED:ERROR:CATCH
+
+
+const getPromise = () => {
+    return new Promise ((resolve, reject) => {
+        console.log("I am a promise");
+            reject("error");
+     
+    });
+};
+
+let promise = getPromise();
+promise.then(() => {
+    console.log("promise fulfiled");
+});
+
+promise.catch(() => {
+    console.log("rejected");
+});
 
 
