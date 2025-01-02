@@ -199,3 +199,36 @@ promise.catch(() => {
 });
 
 
+
+
+// PROMISE CHAIN:
+
+function asynFunc1(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("date1");
+            resolve("success");
+
+        }, 4000);
+    });
+}
+
+
+function asynFunc2(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("date2");
+            resolve("success");
+
+        }, 4000);
+    });
+
+}
+console.log("fetching data1...");
+asynFunc1().then((res) => {
+    console.log("fetching data2...");
+   asynFunc2().then((res) => {});
+
+});
+
+
